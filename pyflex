@@ -1,4 +1,4 @@
-#!/usr/bin/env python2
+#!/usr/bin/env python
 import re
 from sys import argv
 
@@ -16,7 +16,7 @@ try:
     if "download" and not "ERROR" in line:
       downloaded_array.append(line)
 except IOError as e:
-  print "\033[33mNo flexget.log exist."
+  print("\033[33mNo flexget.log exist.")
   raise SystemExit
 
 color_count = 0
@@ -25,12 +25,12 @@ for download in downloaded_array:
   show_match = re.match(r'(\d{4}-\d{2}-\d{2} \d{2}:\d{2}).*Downloading: (\w.*?) - ([sS]\d.[eE]\d.).*', download)
   if show_match:
     show_season = "\033[38;5;%sm%s %s" % (color_list[color_count], show_match.group(2), show_match.group(3))
-    print "%s\033[34m on \033[38;5;%sm%s\033[0m" % (show_season.rjust(60),
-        color_list[color_count], show_match.group(1))
+    print("%s\033[34m on \033[38;5;%sm%s\033[0m" % (show_season.rjust(60),
+          color_list[color_count], show_match.group(1)))
 
     if color_count == len(color_list) - 1:
       color_count = 0
-      color_list = reversed(color_list)
+      color_list.reverse()
     else:
       color_count += 1
 
