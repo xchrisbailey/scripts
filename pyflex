@@ -25,7 +25,7 @@ for download in downloaded_array:
   show_match = re.match(r'(\d{4}-\d{2}-\d{2} \d{2}:\d{2}).*Downloading: (\w.*?) - ([sS]\d.[eE]\d.).*', download)
   if show_match:
     show_season = "\033[38;5;%sm%s %s" % (color_list[color_count], show_match.group(2), show_match.group(3))
-    print "%s\033[34m on \033[38;5;%sm%s\033[0m" % (show_season.rjust(50),
+    print "%s\033[34m on \033[38;5;%sm%s\033[0m" % (show_season.rjust(60),
         color_list[color_count], show_match.group(1))
 
     if color_count == len(color_list) - 1:
