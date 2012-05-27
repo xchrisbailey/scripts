@@ -19,9 +19,9 @@ parser.add_option('-d', '--delete',
 if opts.delete_log == True:
   try:
     os.remove(flexlog_file)
-    print("\033[33m%s has been removed." % flexlog_file)
+    print("\033[33m%s has been removed.\033[0m" % flexlog_file)
   except os.error:
-    print("\033[33mNo flexget.log exist.")
+    print("\033[1;33mNo flexget.log exist.\033[0m")
     pass
   raise SystemExit
 
@@ -35,7 +35,7 @@ try:
     if "downloaded" and not "ERROR" in line:
       downloaded_array.append(line)
 except IOError as e:
-  print("\033[33mNo flexget.log exist.")
+  print("\033[1;33mNo flexget.log exist.\033[0m")
   raise SystemExit
 
 color_count = 0
